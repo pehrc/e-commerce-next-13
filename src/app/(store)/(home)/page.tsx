@@ -5,14 +5,16 @@ import { api } from '@/data/api';
 import { Product } from '@/data/types/product';
 
 async function getFeaturedProducts(): Promise<Product[]> {
-  const response = await api('/products/featured');
+  const response = await api('/products/featured', {
+    next: {
+      revalidate: 60 * 60,
+    },
+  });
   return await response.json();
 }
 
 export default async function Home() {
   const [highlightedProduct, ...otherProducts] = await getFeaturedProducts();
-
-  console.log(highlightedProduct);
 
   return (
     <div className="grid max-h-[860px] grid-cols-9 grid-rows-6 gap-6">
