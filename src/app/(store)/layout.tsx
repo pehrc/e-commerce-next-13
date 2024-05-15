@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-import Header from '../components/header';
-import { CartProvider } from '@/context/cart-context';
+import { CartProvider } from '@/app/context/cart-context';
+import { Header } from '../components/header';
 
 type StoreLayoutType = { children: ReactNode };
 
