@@ -1,9 +1,9 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { Suspense } from 'react'
+import Link from 'next/link';
+import Image from 'next/image';
+import { Suspense } from 'react';
 
-import { CartWidget } from './cart-widget'
-import { SearchForm } from './search-form'
+import { CartWidget } from './cart-widget';
+import { SearchForm } from './search-form';
 
 export function Header() {
   return (
@@ -26,7 +26,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2 hover:underline">
           <span className="text-sm">Account</span>
           <Image
-            src="https://github.com/diego3g.png"
+            src="https://github.com/pehrc.png"
             className="h-6 w-6 rounded-full"
             width={24}
             height={24}
@@ -35,5 +35,5 @@ export function Header() {
         </Link>
       </div>
     </div>
-  )
+  );
 }
