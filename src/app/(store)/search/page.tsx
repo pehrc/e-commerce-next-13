@@ -1,14 +1,14 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { redirect } from 'next/navigation';
+import Image from 'next/image'
+import Link from 'next/link'
+import { redirect } from 'next/navigation'
 
-import { Product } from '@/data/types/product';
-import { api } from '@/data/api';
+import { Product } from '@/data/types/product'
+import { api } from '@/data/api'
 
 interface SearchProps {
   searchParams: {
-    q: string;
-  };
+    q: string
+  }
 }
 
 async function searchProducts(query: string): Promise<Product[]> {
@@ -16,21 +16,21 @@ async function searchProducts(query: string): Promise<Product[]> {
     next: {
       revalidate: 60 * 60, // 1 hour
     },
-  });
+  })
 
-  const products = await response.json();
+  const products = await response.json()
 
-  return products;
+  return products
 }
 
 export default async function Search({ searchParams }: SearchProps) {
-  const { q: query } = searchParams;
+  const { q: query } = searchParams
 
   if (!query) {
-    redirect('/');
+    redirect('/')
   }
 
-  const products = await searchProducts(query);
+  const products = await searchProducts(query)
 
   return (
     <div className="flex flex-col gap-4">
@@ -39,7 +39,7 @@ export default async function Search({ searchParams }: SearchProps) {
       </p>
 
       <div className="grid grid-cols-3 gap-6">
-        {products.map(product => {
+        {products.map((product) => {
           return (
             <Link
               key={product.id}
@@ -67,9 +67,9 @@ export default async function Search({ searchParams }: SearchProps) {
                 </span>
               </div>
             </Link>
-          );
+          )
         })}
       </div>
     </div>
-  );
+  )
 }

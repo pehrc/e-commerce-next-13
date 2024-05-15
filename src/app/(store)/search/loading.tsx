@@ -1,7 +1,7 @@
-import { Suspense } from 'react';
+import { Suspense } from 'react'
 
-import { CurrentSearch } from './current-search';
-import { Skeleton } from '@/app/components/skeleton';
+import { Skeleton } from '@/components/skeleton'
+import { CurrentSearch } from './current-search'
 
 export default function SearchLoading() {
   return (
@@ -19,5 +19,5 @@ export default function SearchLoading() {
         <Skeleton className="h-[400px]" />
       </div>
     </div>
-  );
+  )
 }
